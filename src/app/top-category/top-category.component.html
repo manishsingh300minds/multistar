@@ -1,0 +1,29 @@
+<div class="topComponent">
+    <div class="topContainer container-fluid py-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between px-5">
+                <b class="title">
+                    TOP CATEGORIES
+                </b>
+                <div class="viewall">
+                    VIEW ALL
+                </div>
+            </div>
+        </div>
+        <div class="categoryContainer row mt-4 px-5 d-flex align-items-center">
+            <div class="leftslider col-1 text-start">
+                <i class="fa fa-arrow-left"></i>
+            </div>
+            <div class="list col-10 d-flex">
+                <div class="category col-2 mx-2" *ngFor="let data of topCategories">
+                    <img src="{{data.imgurl}}"/>
+                    <span class="mt-2 d-flex flex-column">{{data.name}}</span>
+                </div>
+            </div>
+            <div class="rightslider col-1 text-end">
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </div>
+
+    </div>
+</div>
