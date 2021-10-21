@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarService } from '../star.service';
 
 @Component({
   selector: 'header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
   }
-
+  nutriData : Object = [];
+  constructor(public apiService: StarService ){
+    this.nutriData =  this.apiService.getTasks().subscribe((data) =>{
+      console.log("Subs",data);
+    });
+    console.log("NutiData",this.nutriData)
+  }
 }

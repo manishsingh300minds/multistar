@@ -8,6 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { TopCategoryComponent } from './top-category/top-category.component';
+import { FooterComponent } from './footer/footer.component';
+import { StarService } from './star.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,16 @@ import { TopCategoryComponent } from './top-category/top-category.component';
     HeaderComponent,
     BannerComponent,
     InventoryComponent,
-    TopCategoryComponent
+    TopCategoryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ StarService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

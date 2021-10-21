@@ -1,8 +1,8 @@
 <div class="inventoryComponent container-fluid">
     <div class="inventoryContainer container-fluid">
-        <div class="row">
+        <div class="row tabDesktop">
             <div class="col-3 d-flex justify-content-end p-0">
-                <div class="col-lg-9 col-xl-9 col-12 d-flex flex-column p-0">
+                <div class="col-lg-9 col-xl-9 col-12 d-flex flex-column p-0 bg-white">
                     <ul class="inventory-list ">
                         <li *ngFor="let type of productType" [ngClass]="{'active' : type.active }" (click)="onProductCall(type.typeId)">
                             <a href="#{{type.typeId}}">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-9 px-3 d-flex justify-content-start">
-                <div class="container-fluid" >
+                <div class="container-fluid p-0" >
                     <section id="{{type.typeId}}" class="tabContainer row p-2" *ngFor="let type of productType">
                         <div *ngIf="type.qty > 0">
                             <div class="section-title col-12 my-3">
@@ -44,6 +44,10 @@
                     </section>
                 </div>
             </div>
+        </div>
+
+        <div class="row tabMobile">
+
         </div>
     </div>
 </div>
