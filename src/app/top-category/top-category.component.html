@@ -33,14 +33,16 @@
     </div>
 </div>
 <div class="topComponent" *ngIf="isLoading">
-    <content-loader
-    viewBox="0 0 400 80"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb">
-    <svg:rect x="11" y="20" rx="3" ry="3" width="80" height="10" /> 
-    <svg:rect x="330" y="20" rx="3" ry="3" width="44" height="8" /> 
-    <svg:rect x="67" y="41" rx="3" ry="3" width="265" height="21" /> 
-    <svg:rect x="26" y="43" rx="3" ry="3" width="22" height="16" /> 
-    <svg:rect x="345" y="43" rx="3" ry="3" width="22" height="16" />
-    </content-loader>
+    <div class="tabDesk">
+        <content-loader
+            viewBox="0 0 400 80"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#ecebeb">
+            <svg:rect x="11" y="20" rx="3" ry="3" width="80" height="10" /> 
+            <svg:rect x="330" y="20" rx="3" ry="3" width="44" height="8" /> 
+            <svg:rect x="67" y="41" rx="3" ry="3" width="265" height="21" /> 
+            <svg:rect x="26" y="43" rx="3" ry="3" width="22" height="16" /> 
+            <svg:rect x="345" y="43" rx="3" ry="3" width="22" height="16" />
+        </content-loader>
+    </div>
 </div>

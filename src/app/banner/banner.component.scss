@@ -22,6 +22,11 @@
             }
         }
     }
+
+    .tabMobile{
+        display: none;
+    }
+
     @media only screen and (max-width: 480px) {
         .question{
             font-size: 12px;
@@ -29,8 +34,22 @@
     }
 }
 
+@media only screen and (max-width: 768px){
+    .tabMobile{
+        margin-top: 10px;
+    }
+}
+
 @media only screen and (max-width: 992px){
     .bannerComponent{
         padding-top: 165px;   
+
+        .tabDesk{
+            display: none;
+        }
+
+        .tabMobile{
+            display: block;
+        }
     }
 }

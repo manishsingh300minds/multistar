@@ -86,9 +86,10 @@
 
 
 <div class="inventoryComponent container-fluid" *ngIf="isLoading">
-    <content-loader
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb">
+    <div class="tabDesk">
+        <content-loader
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb">
         <svg:rect x="17" y="1" rx="3" ry="3" width="88" height="16" /> 
         <svg:rect x="17" y="22" rx="3" ry="3" width="88" height="16" /> 
         <svg:rect x="17" y="43" rx="3" ry="3" width="88" height="16" /> 
@@ -98,4 +99,15 @@
 
         <svg:rect x="125" y="10" rx="3" ry="3" width="262" height="140" />
     </content-loader>
+    </div>
+    <div class="tabMobile">
+        <content-loader
+        viewBox="0 0 400 400"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb">
+        <svg:rect x="12" y="10" rx="3" ry="3" width="380" height="40" /> 
+        <svg:rect x="12" y="60" rx="3" ry="3" width="380" height="300" />        
+    </content-loader>
+    </div>
+    
 </div>

@@ -14,12 +14,24 @@
     </div>
 </div>
 <div class="bannerComponent" *ngIf="isLoading">
-    <content-loader
-    viewBox="0 0 400 100"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb">
-    <svg:rect x="30" y="12" rx="3" ry="3" width="350" height="60" /> 
-    <svg:rect x="270" y="75" rx="3" ry="3" width="40" height="12" /> 
-    <svg:rect x="100" y="77" rx="0" ry="0" width="162" height="8" />
-    </content-loader>
+    <div class="tabDesk">
+        <content-loader
+        viewBox="0 0 400 100"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb">
+        <svg:rect x="30" y="12" rx="3" ry="3" width="350" height="140" /> 
+        <svg:rect x="270" y="75" rx="3" ry="3" width="40" height="12" /> 
+        <svg:rect x="100" y="77" rx="0" ry="0" width="162" height="8" />
+        </content-loader>
+    </div>
+    <div class="tabMobile">
+        <content-loader
+        viewBox="0 0 400 140"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb">
+        <svg:rect x="30" y="12" rx="3" ry="3" width="350" height="90" /> 
+        <svg:rect x="330" y="110" rx="3" ry="3" width="40" height="22" /> 
+        <svg:rect x="30" y="110" rx="0" ry="0" width="280" height="20" />
+        </content-loader>
+    </div>
 </div>
