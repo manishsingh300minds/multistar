@@ -6,7 +6,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./top-category.component.scss']
 })
 export class TopCategoryComponent implements OnInit {
-
+  isLoading = true;
   topCategories : TopCategory[] = [
     {
       imgurl : "assets/images/top/whey.png",
@@ -45,6 +45,9 @@ export class TopCategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    },3000);
       this.topCategories.forEach((data,index)=>{
         if(index <= 5){
           this.toShow.push(data);

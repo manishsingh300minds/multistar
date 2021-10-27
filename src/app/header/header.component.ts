@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StarService } from '../star.service';
 
 @Component({
   selector: 'header',
@@ -7,14 +6,13 @@ import { StarService } from '../star.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isLoading = true;
+  nutriData : Object = [];
 
   ngOnInit(): void {
+    setTimeout(() => {
+      // this.isLoading = false;
+    },2000);
   }
-  nutriData : Object = [];
-  constructor(public apiService: StarService ){
-    this.nutriData =  this.apiService.getTasks().subscribe((data) =>{
-      console.log("Subs",data);
-    });
-    console.log("NutiData",this.nutriData)
-  }
+  constructor(){}
 }

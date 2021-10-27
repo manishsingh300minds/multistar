@@ -1,10 +1,11 @@
-<div class="inventoryComponent container-fluid">
+<div class="inventoryComponent container-fluid" *ngIf="!isLoading">
     <div class="inventoryContainer container-fluid">
         <div class="row tabDesktop">
             <div class="col-3 d-flex justify-content-end p-0">
                 <div class="col-lg-9 col-xl-9 col-12 d-flex flex-column p-0 bg-white">
-                    <ul class="inventory-list ">
-                        <li *ngFor="let type of productType" [ngClass]="{'active' : type.active }" (click)="onProductCall(type.typeId)">
+                    <ul class="inventory-list">
+                        <li *ngFor="let type of productType" [ngClass]="{'active' : type.active }" 
+                            (click)="onProductCall(type.typeId,0)">
                             <a href="#{{type.typeId}}">
                                 <img src="{{type.imgurl}}" />
                                 <div class="media">
@@ -22,9 +23,9 @@
                         <div *ngIf="type.qty > 0">
                             <div class="section-title col-12 my-3">
                                 {{type.typeName}}
-                            </div>             
-                            <div class="productContainer container-fluid">   
-                                <div class="row">  
+                            </div>
+                            <div class="productContainer container-fluid">
+                                <div class="row">
                                     <div *ngFor="let data of type.products" class="product p-3 d-flex justify-content-center align-items-center flex-column bg-white" >
                                         <div class="product-img">
                                             <img src="{{data.imgurl}}" />
@@ -46,8 +47,55 @@
             </div>
         </div>
 
-        <div class="row tabMobile">
-
+        <div class="tabMobile">
+            <div class="listContainer">
+                <ul class="inventory-list d-flex flex-row p-3">
+                    <li class="col-6 col-sm-4 d-flex justify-content-center" [ngClass]="{'active' : type.active }" 
+                    *ngFor="let type of productType" (click)="onProductCall(type.typeId,1)">
+                        <a href="#{{type.typeId}}">
+                            <div class="media">
+                                <div class="title">{{type.typeName}}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-fluid p-0">
+                <div class="productContainer row p-3">
+                    <div *ngFor="let data of tempData" 
+                    class="col-6 col-sm-4 mb-3 d-flex justify-content-center align-items-center flex-column bg-transparent" >
+                        <div class="p-3 bg-white text-center">
+                            <div class="product-img ">
+                                <img class="img-fluid" src="{{data.imgurl}}" />
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">{{data.title}}</div>
+                                <div class="rating text-center my-1"><i class="fa fa-star"></i>{{data.rating}}</div>
+                                <div class="price text-center my-1">
+                                    <span>₹{{data.actualprice}}</span>
+                                    ₹{{data.saleprice}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
+
+<div class="inventoryComponent container-fluid" *ngIf="isLoading">
+    <content-loader
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb">
+        <svg:rect x="17" y="1" rx="3" ry="3" width="88" height="16" /> 
+        <svg:rect x="17" y="22" rx="3" ry="3" width="88" height="16" /> 
+        <svg:rect x="17" y="43" rx="3" ry="3" width="88" height="16" /> 
+        <svg:rect x="17" y="65" rx="3" ry="3" width="88" height="16" /> 
+        <svg:rect x="17" y="86" rx="3" ry="3" width="88" height="16" /> 
+        <svg:rect x="17" y="107" rx="3" ry="3" width="88" height="16" /> 
+
+        <svg:rect x="125" y="10" rx="3" ry="3" width="262" height="140" />
+    </content-loader>
 </div>

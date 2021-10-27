@@ -22,10 +22,15 @@
             }
         }
     }
-
     @media only screen and (max-width: 480px) {
         .question{
             font-size: 12px;
         }
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .bannerComponent{
+        padding-top: 165px;   
     }
 }

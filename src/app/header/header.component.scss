@@ -9,9 +9,11 @@
         color: white;
         font-size: 12px;
         letter-spacing: 2px;
+        height: 26px;
     }
 
     .logoContainer{
+        padding-top: 5px;
         .logo{
             margin: 0px 5px;
             .header-logo{
@@ -51,7 +53,7 @@
 
         i{
             right: 15px;
-            top: 12px;
+            top: 10px;
             color: #fcae2a;
         }
     }
@@ -125,11 +127,16 @@
         }
         .search-element{
             display: block;
+            padding-right: 0px;
         }
         .link-list{
             margin-left: 10px;
             justify-content: flex-start !important;
             overflow-x: scroll;
+        }
+        .user-action{
+            justify-content: end;
+            padding-right: 10%;
         }
     }
 

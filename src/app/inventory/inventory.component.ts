@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'inventory',
@@ -7,11 +8,11 @@ import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit,AfterViewInit {
 
+  isLoading = true;
   selectedId = 1;
   presentElement! : HTMLElement | null;
   offset = 0;
   scrollY= 0;
-  
   productType : ProductType[] = [
     {
       typeId : 1,
@@ -325,10 +326,17 @@ export class InventoryComponent implements OnInit,AfterViewInit {
     },
   ]
   docs : ScrollType[] = [];
+  tempData?: ProductData[] = [];
+  
+  constructor(private router: Router){}
 
-  constructor(){}
-
-  ngOnInit(): void {} 
+  ngOnInit(): void {
+    this.router.navigate(['']);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
+    this.tempData =  this.productType[0].products;
+  } 
   
   ngAfterViewInit(){
     let element;
@@ -344,7 +352,7 @@ export class InventoryComponent implements OnInit,AfterViewInit {
     });
   }
 
-  onProductCall(value : any){
+  onProductCall(value : any,tabSize : number){
     const prevElement = document.getElementById(this.selectedId.toString());
     if(prevElement)
       prevElement.classList.remove("selectedTab");
@@ -353,10 +361,12 @@ export class InventoryComponent implements OnInit,AfterViewInit {
     if(this.presentElement){
       this.presentElement.classList.add("selectedTab"); 
       this.offset = this.presentElement.offsetTop;
-      setTimeout(() => {
-        this.presentElement?.classList.add("selectedTab");
-        this.scrollY = window.scrollY;
-      },1000);
+      if(tabSize === 0){
+        setTimeout(() => {
+          this.presentElement?.classList.add("selectedTab");
+          this.scrollY = window.scrollY;
+        },1000);
+      }
     }
 
     this.selectedId = value;
@@ -368,30 +378,36 @@ export class InventoryComponent implements OnInit,AfterViewInit {
         data.active = false;
       }
     });
+
+    if(tabSize == 1){
+     this.tempData = this.productType.filter((data) => data.typeId === value)[0].products;
+    }
   }
 
   @HostListener("window: scroll", [])
   onScroll(): void {
-    let current;
-    if(this.scrollY !== window.scrollY){
-      this.presentElement?.classList.remove("selectedTab");
-    }
-
-    this.docs.forEach((data) => {
-      current = document.getElementById(data.typeId.toString());
-      
-      if(current)
-      if(window.scrollY > (current?.offsetTop - 200)){
-        this.productType.forEach((product :ProductType) => {
-          if(product.typeId === data.typeId){
-            product.active = true;
-          }
-          else{
-            product.active = false;
-          }
-        });
+    if(window.screen.width > 768){
+      let current;
+      if(this.scrollY !== window.scrollY){
+        this.presentElement?.classList.remove("selectedTab");
       }
-    })
+
+      this.docs.forEach((data) => {
+        current = document.getElementById(data.typeId.toString());
+        
+        if(current)
+        if(window.scrollY > (current?.offsetTop - 200)){
+          this.productType.forEach((product :ProductType) => {
+            if(product.typeId === data.typeId){
+              product.active = true;
+            }
+            else{
+              product.active = false;
+            }
+          });
+        }
+      });
+    }
   }
 }
 

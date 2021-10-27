@@ -4,6 +4,12 @@
             font-size: 30px;
         }
 
+        .viewall{
+            margin-bottom: 0px;
+            text-decoration: underline;
+            color: #fcae2a;
+        }
+
         .list{
             overflow: hidden;
         }
@@ -40,6 +46,12 @@
     }
 
     @media only screen and (max-width: 576px) {
+        .title{
+            font-size: 20px !important; 
+        }
+        .viewall{
+            font-size: 14px !important;
+        }
         .arrow-container{
             width: 30px !important;
             height: 30px !important;

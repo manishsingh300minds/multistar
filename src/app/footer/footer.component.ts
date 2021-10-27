@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
+  isLoading = true;
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 3000);
   }
 
 }

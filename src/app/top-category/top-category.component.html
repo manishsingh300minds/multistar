@@ -1,13 +1,13 @@
-<div class="topComponent">  
+<div class="topComponent" *ngIf="!isLoading">  
     <div class="topContainer container-fluid py-5">
         <div class="row">
-            <div class="col-12 d-flex justify-content-between px-5">
+            <div class="col-12 d-flex justify-content-between align-items-center px-5">
                 <b class="title">
                     TOP CATEGORIES
                 </b>
-                <div class="viewall">
+                <p class="viewall">
                     VIEW ALL
-                </div>
+                </p>
             </div>
         </div>
         <div  class="categoryContainer row mt-4 px-lg-5 px-xl-5 px-2 d-flex align-items-center slider slider-nav">
@@ -31,4 +31,16 @@
             </div>
         </div>
     </div>
+</div>
+<div class="topComponent" *ngIf="isLoading">
+    <content-loader
+    viewBox="0 0 400 80"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb">
+    <svg:rect x="11" y="20" rx="3" ry="3" width="80" height="10" /> 
+    <svg:rect x="330" y="20" rx="3" ry="3" width="44" height="8" /> 
+    <svg:rect x="67" y="41" rx="3" ry="3" width="265" height="21" /> 
+    <svg:rect x="26" y="43" rx="3" ry="3" width="22" height="16" /> 
+    <svg:rect x="345" y="43" rx="3" ry="3" width="22" height="16" />
+    </content-loader>
 </div>

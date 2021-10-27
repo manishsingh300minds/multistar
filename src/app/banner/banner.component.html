@@ -1,4 +1,4 @@
-<div class="bannerComponent">
+<div class="bannerComponent" *ngIf="!isLoading">
     <div class="bannerContainer container-fluid text-center">
         <div class="bannerMain">
             <div class="banner col-12">
@@ -12,4 +12,14 @@
             <button class="btn">Know More</button>
         </div>
     </div>
+</div>
+<div class="bannerComponent" *ngIf="isLoading">
+    <content-loader
+    viewBox="0 0 400 100"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb">
+    <svg:rect x="30" y="12" rx="3" ry="3" width="350" height="60" /> 
+    <svg:rect x="270" y="75" rx="3" ry="3" width="40" height="12" /> 
+    <svg:rect x="100" y="77" rx="0" ry="0" width="162" height="8" />
+    </content-loader>
 </div>
